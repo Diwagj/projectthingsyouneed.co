@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
+    <style>
+        .containerCalcu {
+            display: flex;
+            width: 100%;
+            justify-content: left;
+        }
+
+        input, button {
+            width: 300px;
+            height: 30px; /* Set a specific height for consistency */
+            margin: 10px 0; /* Adjusted margin for better spacing */
+        }
+
+        .containerCalcu div {
+            display: flex;
+            margin: 100px;
+            flex-direction: column;
+        }
+    </style>
+  
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="containerCalcu">
+        <div>
+            <h1>Goal Grade</h1>
+            <input type="text" placeholder="Enter your previous grade." id="prevGrade">
+            <input type="text" placeholder="What is your goal grade this semester?" id="goalGrade">
+            <button id="button1">Calculate</button>
+            <p id="display1"></p>
+        </div>
+        <div>
+            <h1>True Grade</h1>
+            <input type="text" placeholder="Enter your grade this semester" id="semGrade">
+            <input type="text" placeholder="Enter your grade last semester" id="lastSemGrade">
+            <button id="button2">Calculate</button>
+            <p id="display2"></p>
+        </div>
+        
+        </div>
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Corrected the way you're getting the elements by id
+        let prevGradeInput = document.getElementById("prevGrade");
+        let goalGradeInput = document.getElementById("goalGrade");
+
+        let display1 = document.getElementById("display1");
+
+        document.getElementById("button1").addEventListener("click", calculateGoalGrade);
+
+        function calculateGoalGrade() {
+            // Corrected the way you're getting the input values
+            let prevGrade = parseFloat(prevGradeInput.value); // Parse to float to handle decimal grades
+            let goalGrade = parseFloat(goalGradeInput.value); // Parse to float to handle decimal grades
+
+            // Check if the input values are valid numbers
+            if (isNaN(prevGrade) || isNaN(goalGrade)) {
+                display1.innerHTML = "Please enter valid numeric grades.";
+                return; // Exit the function if inputs are invalid
+            }
+
+            let gTotGrade = goalGrade * 3;
+            let result1 = (gTotGrade - prevGrade) / 2;
+            display1.innerHTML = "You need "  + result1 + " to get " + goalGrade;
+        }
+
+        let lastSemGradeInput = document.getElementById("lastSemGrade");
+        let semGradeInput = document.getElementById("semGrade");
+
+        let display2 = document.getElementById("display2");
+
+        document.getElementById("button2").addEventListener("click", calculateRawGrade);
+
+        function calculateRawGrade(){
+            let lastSemGrade = parseFloat(lastSemGradeInput.value);
+            let semGrade = parseFloat(semGradeInput.value);
+
+            if (isNaN(lastSemGrade) || isNaN(semGrade)){
+                display2.innerHTML = "Please enter a valid numeric grades.";
+                return;
+            }
+
+            let sTotGrade = semGrade * 3;
+            let result2 = (sTotGrade - lastSemGrade) / 2;
+            console.log(result2);
+
+            display2.innerHTML = "Your raw grade this semester was " + result2;
+        }
+    </script>
+  
+</body>
+</html>
