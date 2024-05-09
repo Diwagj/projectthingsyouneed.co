@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        .content {
+            min-height: 92.5vh;
+            background: #4a98f7;
+        }
+    </style>
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="wrapperAlarm">
+            <img src="Pictures/alarm.png" alt="alarm">
+            <h1>04:20:30 PM</h1>
+            <div class="contentAlarm">
+                <div class="column">
+                    <select>
+                        <option value="Hour" selected hidden>Hour</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select>
+                        <option value="Minute" selected hidden>Minute</option>
+                    </select>
+                </div>
+                <div class="column">
+                    <select>
+                        <option value="AM/PM" selected hidden>AM/PM</option>
+                    </select>
+                </div>
+            </div>
+            <button>Set Alarm</button>
+        </div>
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        const content = document.querySelector(".contentAlarm");
+        const setAlarmBtn = document.querySelector("button");
+        const currentTime = document.querySelector("h1");
+        const selectMenu = document.querySelectorAll("select");
+
+        let alarmTime, isAlarmSet = false,
+        ringtone = new Audio("./Audio/iphone_alarm.mp3");
+
+        for (let i = 12; i > 0; i--) {
+            i = i < 10 ? "0" + i : i;
+            let option = `<option value ="${i}">${i}</option>`;
+            selectMenu[0].firstElementChild.insertAdjacentHTML("afterend", option);
+        }
+
+        for (let i = 59; i > -1; i--) {
+            i = i < 10 ? "0" + i : i;
+            let option = `<option value ="${i}">${i}</option>`;
+            selectMenu[1].firstElementChild.insertAdjacentHTML("afterend", option);
+        }
+
+        for (let i = 2; i > 0; i--) {
+            let ampm = i == 1 ? "AM" : "PM";
+            let option = `<option value ="${ampm}">${ampm}</option>`;
+            selectMenu[2].firstElementChild.insertAdjacentHTML("afterend", option);
+        }
+
+        setInterval(() => {
+            let date = new Date();
+            h = date.getHours(),
+            m = date.getMinutes(),
+            s = date.getSeconds(),
+            ampm = "AM";
+
+            if(h >= 12) {
+                h = h - 12;
+                ampm = "PM";
+            }
+
+            h = h == 0 ? h = 12 : h;
+
+            h = h < 10 ? "0" + h :h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            currentTime.innerText = `${h}:${m}:${s} ${ampm}`;
+
+            if(alarmTime == `${h}:${m} ${ampm}`) {
+                console.log("Ring ring");
+                ringtone.play();
+                ringtone.loop = true;
+            }
+
+        }, 1000);
+
+        function setAlarm() {
+            if (isAlarmSet) {
+                
+                alarmTime = '';
+                ringtone.pause();
+                content.classList.remove("disable");
+                setAlarmBtn.innerText = "Set Alarm";
+                isAlarmSet = false; // Update the state of alarm
+            } else {
+                
+                let time = `${selectMenu[0].value}:${selectMenu[1].value} ${selectMenu[2].value}`;
+                if (time.includes("Hour") || time.includes("Minute") || time.includes("AM/PM")) {
+                    return alert ("Please Select a Valid Time to Set the Alarm.");
+                }
+                alarmTime = time;
+                content.classList.add("disable");
+                setAlarmBtn.innerText = "Clear Alarm";
+                isAlarmSet = true; // Update the state of alarm
+            }
+        }
+
+
+
+        setAlarmBtn.addEventListener("click", setAlarm);
+    </script>
+</body>
+</html>

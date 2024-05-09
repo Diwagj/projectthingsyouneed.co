@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <!-- put note icon on the image -->
+            <h1><img src="Pictures/note.png">Notes</h1>
+            <!-- put edit icon on the image -->
+            <button class="btn"><img src="Pictures/edit.png">Create Notes</button>
+            <div class="notes-container">
+                <p contenteditable="true" class="input-box">
+                    <!-- delete icon  -->
+                    <img src="Pictures/trash.png"> 
+                </p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        const notesContainer = document.querySelector(".notes-container");
+        const createBtn = document.querySelector(".btn");
+        let notes = document.querySelectorAll(".input-box");
+
+        function showNotes(){
+            notesContainer.innerHTML = localStorage.getItem("notes");
+        }
+
+        showNotes();
+
+        function updateStorage(){
+            localStorage.setItems("notes", notes.InnerHTML)
+        }
+        
+        createBtn.addEventListener("click", () => {
+            let inputBox = document.createElement("p");
+            let img = document.createElement("img");
+            inputBox.className = "input=box";
+            inputBox.setAttribute("contenteditable", "true");
+            img.src = "img/delete.png";
+            notesContainer.appendChild(inputBox).appendChild(img);
+        })
+
+        notesContainer.addEventListener("click", function(e){
+            if(e.target.tagName === "IMG") {
+                e.target.parentElement.remove();
+                updateStorage();
+            } else if (e.target.name === "P") {
+                notes = document.querySelectorAll(".input-box");
+                notes.forEach(nt => {
+                    nt.onkeyup = function(){
+                        updateStorage();
+                    }
+                })
+            }
+        })
+
+        document.addEventListener("keydown", event => {
+            if(event.key === "Enter") {
+                document.execCommand("insertLineBreak");
+                event.preventDefault();
+            }
+        })
+    </script>
+</body>
+</html>

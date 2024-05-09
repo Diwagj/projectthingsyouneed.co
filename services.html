@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        .navigation .right #border {
+            color: rgb(36, 102, 114);
+        }
+        .content div img {
+            width: 350px;
+            height: 250px;
+            margin: auto;
+            transition: all 0.2s ease-in-out ;
+        }
+        .content div img:hover{
+            width: 450px;
+            height: 320px;
+            margin: auto;
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 93.5vh;
+            flex-direction: column;
+        }
+    </style>
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html" id="border">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        <div>
+            <a href="calculator.html"><img src="Pictures/calculator.png" alt="Calculator Icon"></a>
+            <a href="rng.html"><img src="Pictures/Rng.png" alt="RNG Icon"></a>
+            <a href="stopwatch.html"><img src="Pictures/stopwatch.png" alt="Stopwatch Icon"></a>
+            <a href="timer.html"><img src="Pictures/timer.png" alt="Timer Icon"></a>
+        </div>
+        <div>
+            <a href="weather.html"><img src="Pictures/weather.png " alt="Stopwatch Icon"></a>
+            <a href="todo.html"><img src="Pictures/todo list.png " alt="To Do Icon"></a>
+            <a href="clock.html"><img src="Pictures/clock.png " alt="Clock Icon"></a>
+            <a href="calendar.html"><img src="Pictures/calendar.png " alt="Calendar Icon"></a>
+        </div>
+        <div>
+            <a href="alarm.html"><img src="Pictures/alarm.png " alt="Alarm Icon"></a>
+            <a href="notes.html"><img src="Pictures/notes.png " alt="Notes Icon"></a>
+        </div>
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved</p>
+        </div>
+    </div>
+</body>
+</html>

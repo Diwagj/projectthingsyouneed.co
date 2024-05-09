@@ -1,0 +1,496 @@
+@font-face {
+    font-family: bubbly;
+    src: url(Atop-R99O3.ttf);
+}
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* webpage css */
+body {
+    background-color: rgb(250, 234, 214);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 92.5vh;
+}
+.footer {
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: center;
+    width: 100%;
+    height: 2vh;
+    overflow: hidden;
+    position: absolute;
+    bottom: 0;
+}
+.content .footer p {
+    margin: auto;
+}
+.right a {
+    text-decoration: none;
+    color: rgb(9, 52, 61);
+    font-size: 20px;
+}
+.right a:hover{
+    color: hsl(0, 0%, 30%);
+    border-bottom: solid;
+    border-color: hsl(0, 0%, 30%);
+}
+.right a:active {
+    color: hsl(0, 0%, 50%);
+}
+.left a {
+    text-decoration: none;
+    color: rgb(9, 52, 61);
+    margin: auto 0;
+    padding-left: 30px;
+}
+.navigation {
+    display: flex;
+    height: 7.5vh;
+    width: 100%;
+    background: #dfa5a5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.left, .right {
+    display: flex;
+    width: 50%;
+    height: 100%;
+}
+.navigationText {
+    margin: auto;
+}
+
+/* RNG CSS */
+#myButton1, #myButton2, #myButton3 {
+    font-size: 3em;
+    padding: 5px 25px;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+#myLabel {
+    font-size: 3em;
+}
+
+/* Timer CSS*/
+
+#countdown{
+    background:transparent;
+    color: rgb(9, 52, 61);
+    width: 300px;
+    margin: 10px auto;
+    font-size: 1em;
+    text-align: center;
+}
+
+/* Stopwatch CSS */
+
+.stopwatch {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 90%;
+    max-width: 600px;
+    background: transparent;
+    text-align: center;
+    padding: 40px 0;
+    color: rgb(9, 52, 61);
+    margin: 200px auto;
+}
+.stopwatch h1 {
+    margin-top: 60px;
+    font-size: 64px;
+    font-weight: 300px;
+}
+.stopwatch input {
+    margin-top: 60px;
+    font-size: 64px;
+    font-weight: 300px;
+    width: 30%;
+    text-align: center;
+    background-color: #ad7070;
+    border: none;
+    color: rgb(9, 52, 61);
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.buttons img {
+    width: 120px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+.buttons img:nth-child(2) {
+    width: 250px;
+}
+
+/* Notes CSS */
+
+.container {
+    width: 100%;
+    min-height: 100%;
+    background: linear-gradient(135deg, #cf9aff, #95c0ff);
+    color: #fff;
+    padding-left: 10%;
+}
+
+.container h1 {
+    display: flex;
+    align-items: center;
+    font: 35px;
+    font-weight: 600;
+}
+
+.container h1 img {
+    width: 60px;
+}
+
+.container button img {
+    width: 25px;
+    margin-right: 8px;
+}
+
+.container button {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(#9418fd, #571094);
+    color: #fff;
+    font-size: 16px;
+    outline: 0;
+    border: 0;
+    border-radius: 40px;
+    padding: 15px 25px;
+    margin: 30px 0 20px;
+    cursor: pointer;
+
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    min-height: 150px;
+    background: #fff;
+    color: #333;
+    padding: 20px;
+    margin: 20px 0;
+    outline: none;
+    border-radius: 5px;
+}
+
+.input-box img {
+    width: 25px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+/* calculator css */
+
+/* .content .container {
+    width: 100%;
+    height: 93.5vh;
+    background: #e3e3e3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+.calculator {
+    background: #2d2a3f;
+    padding: 20px;
+    border-radius: 10px;
+}
+.calculator form input {
+    border: 0;
+    outline: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #b88c8c;
+    font-size: 20px;
+    color: #fff;
+    cursor: pointer;
+    margin: 2px;
+}
+form .display {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 0;
+}
+form .display input {
+    text-align: right;
+    flex: 1;
+    font-size: 45px;
+    
+}
+form input.equal {
+    width: 128px;
+ }
+
+ /* Wether CSS */
+
+ .card {
+    width: 90%;
+    max-width: 470px;
+    background: #b91919;
+    color: #fff;
+    margin: 20px;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+ }
+ .search {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input {
+    border: 0;
+    outline: 0;
+    background-color: #ece6e6;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+}
+.search button {
+    border: 0;
+    outline: 0;
+    background-color: #ece6e6;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+.search button img {
+    width: 60px;
+}
+.weather-icon {
+    width: 450px;
+    margin-top: 7px;
+}
+.weather h1 {
+    font-size: 80px;
+    font-weight: 500;
+}
+.weather h2 {
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+}
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    float: right;
+    width: 50%;
+}
+.col img {
+    width: 100px;
+    margin-right: 10px;
+}
+.humidity, .wind {
+    font-size: 28px;
+    margin-top: 30px;
+}
+.weather {
+display: none;
+}
+.error {
+    text-align:left;
+    margin-left: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+/* To-do CSS */
+
+.todoContainer {
+    width: 100%;
+    height: 92.5vh;
+    background: linear-gradient(135deg, #153677, #4e085f);
+    padding: 10px;
+}
+
+.todo-app {
+    width: 100%;
+    max-width: 540px;
+    background: #fff;
+    margin: 100px auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.todo-app h2 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.todo-app h2 img {
+    width: 80px;
+    margin-left: 10px;
+}
+
+.rowTodo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;
+    border-radius: 30px;
+    padding-left: 20;
+    margin-bottom: 25px;
+}
+
+.rowTodo input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding: 10px;
+}
+
+.rowTodo button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font: size 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.todo-app ul li {
+    list-style: none;
+    font-size: 17px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.todo-app ul li::before {
+    content: '';
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-image: url(Pictures/uncheck.png);
+    background-size: cover;
+    background-position: center;
+    top: 6px;
+    left: 8px;
+}
+
+.todo-app ul li.checked {
+    color: #555;
+    text-decoration: line-through;
+}
+
+.todo-app ul li.checked::before {
+    background-image: url(Pictures/check.png);
+}
+
+.todo-app ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.todo-app ul li span:hover {
+    background: #edeef0;
+}
+/* Alarm CSS */
+
+.wrapperAlarm {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 440px;
+    background: #fff;
+    border-radius: 10px;
+    flex-direction: column;
+    padding: 30px 30px 38px;
+}
+
+.wrapperAlarm img {
+    max-width: 100%;
+}
+
+.wrapperAlarm h1 {
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0;
+}
+.wrapperAlarm .contentAlarm {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    display: flex;
+}
+
+.wrapperAlarm .contentAlarm.disable{
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.contentAlarm .column {
+    border-radius: 4px;
+    padding: 0 10px;
+    border: 1px solid #999;
+    width: calc(100% / 3 - 5px);
+}
+
+.column select {
+    outline: none;
+    border: none;
+    height: 53px;
+    width: 100%;
+    font-size: 19px;
+}
+
+.wrapperAlarm button {
+    width: 100%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 17px 0;
+    border-radius: 5px;
+    background: #4a98f7;
+}

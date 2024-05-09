@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        .content p{
+            background:transparent;
+            color: rgb(9, 52, 61);
+            width: 300px;
+            margin: 10px auto;
+            font-size: 3em;
+            text-align: center;
+        }
+        .content {
+            flex-direction: column;
+            justify-content: center;
+        }
+        .content div {
+            width: 300px;
+            display: flex;
+        }
+        button {
+            margin: auto 0;
+            font-size: 2em;
+            margin-top: 30px;
+        }
+        button:nth-child(1) {
+            margin: auto auto auto 0;
+        }
+        button:nth-child(2) {
+            margin: 30px auto;
+        }
+        button:nth-child(3) {
+            margin: auto 0 auto auto;
+        }
+    </style>
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        <p id="display"><input type="number" id="countdown" placeholder="Enter a Number"></p>
+            <div>
+            <button onclick="timerStart()">start</button>
+            <button onclick="timerStop()">stop</button>
+            <button onclick="timerReset()">reset</button>
+            </div>
+        </div>
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script src="timer.js"></script>
+</body>
+</html>

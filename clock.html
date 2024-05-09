@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+    <style>
+        h1 {
+            font-size: 80px;
+        }
+    </style>
+    <div class="navigation">
+        <div class="left">
+            <a href="homepage.html"><img src="Pictures/logo2.png" width="120px" style="padding-right: 40px; padding-left: 7px;"></a>
+        </div>
+        <div class="right">
+            <p class="navigationText"><a href="about us.html">About Us</a></p>
+            <p class="navigationText"><a href="services.html">Services</a></p>
+            <p class="navigationText"><a href="contact.html">Contact US</a></p>
+        </div>
+    </div>
+    <div class="content">
+        
+        <div class="hero">
+            <div class="container">
+                <div class="clock">
+                    <h1 id="h1">00:00:00</h1>
+                </div>
+            </div>
+        </div>
+            
+        <div class="footer">
+            <p>©Things You Need Company 2024. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+
+        let hrs = document.getElementById("h1");
+
+        setInterval(() => {
+            let date = new Date();
+            h = date.getHours(),
+            m = date.getMinutes(),
+            s = date.getSeconds(),
+            ampm = "AM";
+
+            if(h >=12) {
+                h = h - 12;
+                ampm = "PM";
+            }
+
+            h = h == 0 ? h = 12 : h;
+
+            h = h < 10 ? "0" + h :h;
+            m = m < 10 ? "0" + m : m;
+            s = s < 10 ? "0" + s : s;
+
+            hrs.innerText = `${h}:${m}:${s} ${ampm}`;
+        }, 1000);
+
+    </script>
+</body>
+</html>
