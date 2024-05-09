@@ -11,6 +11,23 @@
         .content {
             flex-direction: row;
         }
+
+        @media (max-width: 450px) {
+    
+            .footer p {
+                margin: auto;
+                font-size: 10px;
+            }
+            .right a {
+                text-decoration: none;
+                color: rgb(9, 52, 61);
+                font-size: 10px;
+                font-weight: 300;
+            }
+            .left img {
+                width: 70px;
+            }
+        }
     </style>
     <div class="navigation">
         <div class="left">
@@ -31,9 +48,11 @@
                 <img src="Pictures/reset.png" alt="reset icon" onclick="watchReset()">
             </div>
         </div>
+
         <div class="footer">
             <p>©Things You Need Company 2024. All Rights Reserved</p>
         </div>
+        
     </div>
 
 
