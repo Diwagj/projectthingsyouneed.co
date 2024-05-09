@@ -99,6 +99,24 @@
         .date.inactive:hover {
             color: #fff;
         }
+
+        @media (max-width:450px) {
+            .calendar {
+                max-width: 300px;
+                padding: 10px;
+                background: #fff;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .dates {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 0px;
+                font-size: 15px;
+            }
+        }
+        
     </style>
     <div class="navigation">
         <div class="left">
