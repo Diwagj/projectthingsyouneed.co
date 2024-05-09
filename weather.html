@@ -11,6 +11,101 @@
         .content{
             box-sizing: border-box;
         }
+
+        @media (max-width: 450px) {
+            .card {
+                width: 90%;
+                max-width: 275px;
+                background: #b91919;
+                color: #fff;
+                margin: 20px;
+                border-radius: 20px;
+                padding: 25px 20px;
+                text-align: center;
+            }
+            .search {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .search input {
+                width: 25px;
+                border: 0;
+                outline: 0;
+                background-color: #ece6e6;
+                color: #555;
+                padding: 10px 25px;
+                height: 60px;
+                border-radius: 30px;
+                flex: 1;
+                margin-right: 16px;
+                font-size: 18px;
+            }
+            .search button {
+                border: 0;
+                outline: 0;
+                background-color: #ece6e6;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                cursor: pointer;
+            }
+            .search button img {
+                width: 50px;
+                height: auto;
+            }
+            .weather-icon {
+                width: 250px;
+                margin-top: 7px;
+            }
+            .weather h1 {
+                font-size: 50px;
+                font-weight: 500;
+            }
+            .weather h2 {
+                font-size: 35px;
+                font-weight: 400;
+                margin-top: -10px;
+            }
+            .details {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 20px;
+                margin-top: 50px;
+            }
+
+            .col {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                float: right;
+                width: 50%;
+            }
+            .col img {
+                width: 60px;
+                margin-right: 20px;
+            }
+
+            .col p {
+                font-size: 13px;
+            }
+
+            .humidity, .wind {
+                font-size: 13px;
+                margin-top: 30px;
+            }
+            .weather {
+            display: block;
+            }
+            .error {
+                text-align:left;
+                margin-left: 10px;
+                font-size: 14px;
+                display: none;
+            }
+        }
     </style>
     <div class="navigation">
         <div class="left">
