@@ -1,2 +1,1 @@
-# projectthingsyouneed.co
-homepage.html
+# projectthingsyouneed.co homepage.html
