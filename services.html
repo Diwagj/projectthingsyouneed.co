@@ -14,13 +14,13 @@
         .navigation .right #border {
             color: rgb(36, 102, 114);
         }
-        .content div img {
+        .content .images img {
             width: 350px;
             height: 250px;
             margin: auto;
             transition: all 0.2s ease-in-out ;
         }
-        .content div img:hover{
+        .content .images img:hover{
             width: 450px;
             height: 320px;
             margin: auto;
@@ -32,6 +32,28 @@
             width: 100%;
             height: 93.5vh;
             flex-direction: column;
+        }
+
+        @media (max-width: 450px) {
+            .content .images img {
+                max-width: 110px;
+                height: auto;
+                margin: auto;
+                transition: all 0.2s ease-in-out ;
+            }
+
+            .content  {
+                overflow-x: scroll;
+            }
+
+            .content .images {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                height: auto;
+            }
+            
         }
     </style>
     <div class="navigation">
@@ -45,19 +67,19 @@
         </div>
     </div>
     <div class="content">
-        <div>
+        <div class="images">
             <a href="calculator.html"><img src="Pictures/calculator.png" alt="Calculator Icon"></a>
             <a href="rng.html"><img src="Pictures/Rng.png" alt="RNG Icon"></a>
             <a href="stopwatch.html"><img src="Pictures/stopwatch.png" alt="Stopwatch Icon"></a>
             <a href="timer.html"><img src="Pictures/timer.png" alt="Timer Icon"></a>
         </div>
-        <div>
+        <div class="images">
             <a href="weather.html"><img src="Pictures/weather.png " alt="Stopwatch Icon"></a>
             <a href="todo.html"><img src="Pictures/todo list.png " alt="To Do Icon"></a>
             <a href="clock.html"><img src="Pictures/clock.png " alt="Clock Icon"></a>
             <a href="calendar.html"><img src="Pictures/calendar.png " alt="Calendar Icon"></a>
         </div>
-        <div>
+        <div class="images">
             <a href="alarm.html"><img src="Pictures/alarm.png " alt="Alarm Icon"></a>
             <a href="notes.html"><img src="Pictures/notes.png " alt="Notes Icon"></a>
         </div>
