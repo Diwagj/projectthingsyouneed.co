@@ -74,6 +74,47 @@
             color: rgb(9, 52, 61);
             margin-top: 30px;;
         }
+
+        @media (max-width:450px) {
+            .content{
+                flex-direction: column;
+            }
+            .contentLeft, .contentRight {
+                width: 100%;
+                height: 50%;
+                display: flex;
+                align-items:baseline;
+                align-items: center;
+                justify-content: center;
+            }
+            .contentRight {
+                flex-direction: column;
+            }
+
+            .contentLeft{
+                flex-direction: row;
+            }
+
+            .content .textImg img {
+                width: 75px;
+                height: auto;
+                margin: auto;
+            }
+
+            .textImg {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                margin: auto;
+                flex-direction: column;
+            }
+            
+            .content .textImg p {
+                color: rgb(9, 52, 61);
+                font-size: 15px;
+            }
+        }
     </style>
 
     <div class="navigation">
