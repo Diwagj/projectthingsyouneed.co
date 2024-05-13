@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to left, pink, white);
+}
+td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.header button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.monthYear {
+    width: 150px;
+    font-weight: 500;
+    text-align: center;
+    margin: 50px;
+}
+
+    </style>
+    <table border="1">
+        <thead id="header">
+            <td>
+                <button id="prevBtn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div id="monthYear"></div>
+                <button id="nextBtn">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </td>
+        </thead>
+        <tbody id="datesInput">
+
+        </tbody>
+    </table>
+    <button id="calculateButton">Calculate</button>
+    <p id="output"></p>
+    <script>
+      const tbody = document.getElementById("datesInput"); // Make sure you have an element with ID "datesInput"
+const monthYearElement = document.getElementById('monthYear');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+
+let currentDate = new Date();
+
+function updateCalendar() {
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth();
+
+    const monthYearString = currentDate.toLocaleString('default', {month: 'long', year: 'numeric'});
+    monthYearElement.textContent = monthYearString;
+
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+    const getLastDay = lastDay.getDate();
+
+    tbody.innerHTML = '';
+
+    for(let i = 1; i <= getLastDay; i++){
+        const row = document.createElement("tr");
+        
+        const dateCell = document.createElement("td");
+        dateCell.textContent = i;
+        row.appendChild(dateCell);
+
+        const inputCell = document.createElement("td");
+        const input = document.createElement("input");
+        input.setAttribute("type", "text");
+
+        // Check if there's saved data for this date, if yes, populate the input with the saved value
+        const savedData = JSON.parse(localStorage.getItem('inputData')) || {};
+        if (savedData[currentYear + '-' + (currentMonth + 1) + '-' + i]) {
+            input.value = savedData[currentYear + '-' + (currentMonth + 1) + '-' + i];
+        }
+
+        input.addEventListener('input', saveData); // Add event listener to save data when input changes
+        inputCell.appendChild(input);
+        dateCell.appendChild(inputCell);
+
+        tbody.appendChild(row); // Append the row to the tbody
+    }
+}
+
+function calculateSum() {
+    let sum = 0;
+    const inputs = document.querySelectorAll('#datesInput input[type="text"]');
+    inputs.forEach(input => {
+        const value = parseFloat(input.value.trim()) || 0; // Parse input value as a float or set it to 0 if it's not a valid number
+        sum += value;
+    });
+    document.getElementById("output").textContent = "The sum is " + sum + ".";
+}
+
+function saveData() {
+    const savedData = {};
+
+    // Get all input elements and store their values in savedData
+    const inputs = document.querySelectorAll('#datesInput input[type="text"]');
+    inputs.forEach(input => {
+        const date = input.closest('tr').querySelector('td:first-child').textContent; // Get the date
+        const value = input.value.trim(); // Get the input value
+        const currentYear = currentDate.getFullYear();
+        const currentMonth = currentDate.getMonth() + 1;
+        savedData[currentYear + '-' + currentMonth + '-' + date] = value; // Store value in savedData object with date as key
+    });
+
+    // Save data to localStorage
+    localStorage.setItem('inputData', JSON.stringify(savedData));
+}
+
+document.getElementById("calculateButton").addEventListener('click', calculateSum);
+
+prevBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    updateCalendar();
+})
+nextBtn.addEventListener('click', () => {
+    currentDate.setMonth(currentDate.getMonth() + 1); // Corrected month increment
+    updateCalendar();
+})
+
+// Call the function to generate dates and inputs
+updateCalendar();
+
+    </script>
+</body>
+</html>
