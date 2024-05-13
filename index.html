@@ -3,82 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="navigation">
-        <div class="left">
-            <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
-        </div>
-        <div class="right">
-            <p class="navigationText"><a href="about us.html">About Us</a></p>
-            <p class="navigationText"><a href="services.html">Services</a></p>
-            <p class="navigationText"><a href="contact.html">Contact US</a></p>
-        </div>
+    <style>
+        .upper{
+            display: flex;
+            width: 100%;
+            height: 58.5vh;
+            
+        }
+        .content .upper .left{
+            display: flex;
+            flex-direction: column;
+            color: rgb(9, 52, 61);
+        }
+        .upper .left p {
+            font-family: bubbly;
+            font-size: 70px;
+            margin: 0 auto;
+        }
+        .upper .right img {
+            margin: auto;
+            width: 95%;
+            height: 99%;
+            background: transparent;
+            margin-top: 1px;
+        }
+        .middle {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            height: 32vh;
+            background: wheat;
+            margin: auto;
+        }
+        .middle p {
+            font-size: 30px;
+            color: rgb(9, 52, 61);
+            margin: auto;
+            margin-left: 30px;
+        }
+        .content {
+            flex-direction: column;
+        }
+
+        @media (max-width: 450px) {
+            .upper {
+                display: flex;
+                width: 100%;
+                height: 55.5vh;
+            }
+            .upper .right img {
+                display: none;
+            }
+            .content .upper .left{
+                display: flex;
+                flex-direction: column;
+                color: rgb(9, 52, 61);
+                width: 100%;
+            }
+            .upper .left p {
+                font-family: bubbly;
+                font-size: 60px;
+                margin: 0 20px;
+            }
+            .middle {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 37vh;
+                background: wheat;
+                margin: auto;
+                overflow: hidden;
+            }
+            .middle p {
+                font-size: 20px;
+                color: rgb(9, 52, 61);
+                margin: auto;
+                margin-left: 5px;
+                overflow: hidden;
+            }
+            
+            .footer {
+                display: flex;
+                background-color: black;
+                color: white;
+                justify-content: center;
+                width: 100%;
+                height: 2vh;
+                overflow: hidden;
+            }
+            .content .footer p {
+                margin: auto;
+                font-size: 10px;
+            }
+            .right a {
+                text-decoration: none;
+                color: rgb(9, 52, 61);
+                font-size: 10px;
+                font-weight: 300;
+            }
+            .left img {
+                width: 70px;
+            }
+        }
+    </style>
+     <div class="navigation">
+            <div class="left">
+                <a href="homepage.html"><img src="Pictures/logo2.png" width="90px" style="padding-right: 40px; padding-left: 7px;"></a>
+            </div>
+            <div class="right">
+                <p class="navigationText"><a href="about us.html">About Us</a></p>
+                <p class="navigationText"><a href="services.html">Services</a></p>
+                <p class="navigationText"><a href="contact.html">Contact US</a></p>
+            </div>
     </div>
     <div class="content">
-        <div class="container">
-            <!-- put note icon on the image -->
-            <h1><img src="Pictures/note.png">Notes</h1>
-            <!-- put edit icon on the image -->
-            <button class="btn"><img src="Pictures/edit.png">Create Notes</button>
-            <div class="notes-container">
-                <p contenteditable="true" class="input-box">
-                    <!-- delete icon  -->
-                    <img src="Pictures/trash.png"> 
-                </p>
+        <div class="upper">
+            <div class="left">
+                <p style="margin-top: auto;">ANYTHING</p>
+                <p style="margin-bottom: auto;">AND EVERTHING IS HERE</p>
+            </div>
+            <div class="right">
+                <img src="Pictures/background.png" alt="">
             </div>
         </div>
+        <div class="middle">
+            <p>Things You Need is a company that thinks about it's users needs. This website has a lot of things that you can do or the things that you need. It has things like simple calculator, to-do list, and other things that you can think of. If you have somethings that you want to be added in our feature. Just click About Us and click on our social media platforms to contact us.</p>
+        </div>
         <div class="footer">
-            <p>©Things You Need Company 2024. All Rights Reserved.</p>
+            <p>©Things You Need Company 2024. All Rights Reserved</p>
         </div>
     </div>
-
-    <script>
-        const notesContainer = document.querySelector(".notes-container");
-        const createBtn = document.querySelector(".btn");
-        let notes = document.querySelectorAll(".input-box");
-
-        function showNotes(){
-            notesContainer.innerHTML = localStorage.getItem("notes");
-        }
-
-        showNotes();
-
-        function updateStorage(){
-            localStorage.setItems("notes", notes.InnerHTML)
-        }
-        
-        createBtn.addEventListener("click", () => {
-            let inputBox = document.createElement("p");
-            let img = document.createElement("img");
-            inputBox.className = "input=box";
-            inputBox.setAttribute("contenteditable", "true");
-            img.src = "img/delete.png";
-            notesContainer.appendChild(inputBox).appendChild(img);
-        })
-
-        notesContainer.addEventListener("click", function(e){
-            if(e.target.tagName === "IMG") {
-                e.target.parentElement.remove();
-                updateStorage();
-            } else if (e.target.name === "P") {
-                notes = document.querySelectorAll(".input-box");
-                notes.forEach(nt => {
-                    nt.onkeyup = function(){
-                        updateStorage();
-                    }
-                })
-            }
-        })
-
-        document.addEventListener("keydown", event => {
-            if(event.key === "Enter") {
-                document.execCommand("insertLineBreak");
-                event.preventDefault();
-            }
-        })
-    </script>
 </body>
 </html>
